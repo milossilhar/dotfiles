@@ -1,5 +1,5 @@
 POSTGRES := './compose.yaml'
-POSTGRES_ENV := './env'
+POSTGRES_ENV := home_dir() / '.config/just/postgre/.env'
 
 list:
   PGPASSWORD=$(grep POSTGRES_PASSWORD {{POSTGRES_ENV}} | cut -d '=' -f2) psql -l -h localhost -p 5432 -U postgres
