@@ -24,17 +24,7 @@ alias lA='ls -A'
 alias lm='ls|more'
 alias lla='ls -la' # all and long
 
-# make mac sleep
-alias slp="osascript -e 'tell app \"Finder\" to sleep'"
-
-# restart dock cause that stupid bug :(
-alias restartDock="killall -Kill Dock"export PATH="/usr/local/opt/openjdk/bin:$PATH"
-
 # Adding JAVA to PATH
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
-# NVM Configuration
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
