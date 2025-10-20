@@ -1,0 +1,11 @@
+# make mac sleep
+alias slp="osascript -e 'tell app \"Finder\" to sleep'"
+
+# restart dock cause that stupid bug
+alias restart-dock="killall -Kill Dock"
+
+# open file in different applications
+alias play="open -a MPlayerX"
+alias text="open -a TextMate"
+alias web="open -a Safari"
+alias rr="open -a RStudio"
