@@ -7,4 +7,4 @@ if ! command -v stow >/dev/null 2>&1; then
 fi
 
 stow -v --dotfiles -d . -t ~ home
-# stow -v -d . -t ~/.config/just just
+stow -v --dotfiles -d . -t ~/.config/just just

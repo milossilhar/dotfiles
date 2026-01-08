@@ -1,0 +1,33 @@
+POSTGRES := './compose.yaml'
+POSTGRES_ENV := home_dir() / '.config/just/postgres/.env'
+
+# lists all recipes
+@default:
+  just --list
+
+# lists all available databases
+list:
+  PGPASSWORD=$(grep POSTGRES_PASSWORD {{POSTGRES_ENV}} | cut -d '=' -f2) psql -l -h localhost -p 5432 -U postgres
+
+restore file dbname format='c':
+  PGPASSWORD=$(grep POSTGRES_PASSWORD {{POSTGRES_ENV}} | cut -d '=' -f2) pg_restore -h localhost -p 5432 -U postgres --dbname={{dbname}} --format={{format}} {{file}}
+
+# connects to choosen db (default postgres)
+connect db='postgres':
+  PGPASSWORD=$(grep POSTGRES_PASSWORD {{POSTGRES_ENV}} | cut -d '=' -f2) psql -d {{db}} -h localhost -p 5432 -U postgres
+
+# start postgres service in docker
+start:
+  docker compose -f {{POSTGRES}} up -d
+
+# stops postgres service in docker
+stop:
+  docker compose -f {{POSTGRES}} down
+
+# removes postgres (inluding volume)
+remove:
+  ../yesno.sh && docker compose -f {{POSTGRES}} down -v || echo
+
+# shows pass for local postgres database
+@pass:
+  grep POSTGRES_PASSWORD {{POSTGRES_ENV}} | cut -d '=' -f2

@@ -1,0 +1,19 @@
+name: "local-aws"
+services:
+  local-s3:
+    container_name: "local-s3-main"
+    image: localstack/localstack:s3-latest
+    ports:
+      - "4566:4566" # LocalStack Gateway
+    networks:
+      - local_aws_network
+    volumes:
+      - local_aws_s3_data:/var/lib/localstack
+      - "/var/run/docker.sock:/var/run/docker.sock"
+volumes:
+  local_aws_s3_data:
+    name: local_aws_s3_data
+networks:
+  local_aws_network:
+    name: local_aws_network
+    driver: bridge

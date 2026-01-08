@@ -1,0 +1,17 @@
+COMPOSE_FILE := './compose.yaml'
+
+# lists all recipes
+@default:
+  just --list
+
+# start localstack service in docker
+start:
+  docker compose -f {{COMPOSE_FILE}} up -d
+
+# stops localstack service in docker
+stop:
+  docker compose -f {{COMPOSE_FILE}} down
+
+# removes localstack (inluding volume)
+remove:
+  ../yesno.sh && docker compose -f {{COMPOSE_FILE}} down -v || echo

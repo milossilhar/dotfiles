@@ -1,0 +1,11 @@
+mod postgres
+mod localstack
+
+# lists all recipes
+@default:
+    echo "### MODULE root ###"
+    just -gl
+    echo "### MODULE postgres ###"
+    just -gl postgres
+    echo "### MODULE localstack ###"
+    just -gl localstack
