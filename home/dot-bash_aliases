@@ -1,10 +1,18 @@
-# ls tweaks :D
-alias ls='ls -G' # colorful
-alias ll='ls -lh' # long output right away
-alias la='ls -a' # all output
-alias lA='ls -A'
-alias lm='ls|more'
-alias lla='ls -la' # all and long
+
+# enable color support of ls and also add handy aliases
+if command -v lsd >/dev/null 2>&1; then
+    alias ls='lsd'
+    alias ll='lsd -lh'
+    alias la='lsd -a'
+    alias lA='lsd -A'
+    alias lla='lsd -la'
+else
+    alias ls='ls --color=auto'
+    alias ll='ls -lh'
+    alias la='ls -a'
+    alias lA='ls -A'
+    alias lla='ls -la'
+fi
 
 # just aliases
 alias j='just'
