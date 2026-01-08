@@ -1,33 +1,37 @@
 POSTGRES := './compose.yaml'
-POSTGRES_ENV := home_dir() / '.config/just/postgres/.env'
+POSTGRES_PASSWORD := `grep POSTGRES_PASSWORD ~/.config/just/postgres/.env | sed 's/POSTGRES_PASSWORD=//' | sed 's/\"//g'`
 
 # lists all recipes
 @default:
   just --list
 
-# lists all available databases
-list:
-  PGPASSWORD=$(grep POSTGRES_PASSWORD {{POSTGRES_ENV}} | cut -d '=' -f2) psql -l -h localhost -p 5432 -U postgres
+# creates a new database with given name
+@create dbname:
+  PGPASSWORD={{POSTGRES_PASSWORD}} psql -d postgres -h localhost -p 5432 -U postgres -c "CREATE DATABASE {{dbname}}"
 
-restore file dbname format='c':
-  PGPASSWORD=$(grep POSTGRES_PASSWORD {{POSTGRES_ENV}} | cut -d '=' -f2) pg_restore -h localhost -p 5432 -U postgres --dbname={{dbname}} --format={{format}} {{file}}
+# lists all available databases
+@list:
+  PGPASSWORD={{POSTGRES_PASSWORD}} psql -l -h localhost -p 5432 -U postgres
+
+@restore file dbname format='c':
+  PGPASSWORD={{POSTGRES_PASSWORD}} pg_restore -h localhost -p 5432 -U postgres --dbname={{dbname}} --format={{format}} {{file}}
 
 # connects to choosen db (default postgres)
-connect db='postgres':
-  PGPASSWORD=$(grep POSTGRES_PASSWORD {{POSTGRES_ENV}} | cut -d '=' -f2) psql -d {{db}} -h localhost -p 5432 -U postgres
+@connect db='postgres':
+  PGPASSWORD={{POSTGRES_PASSWORD}} psql -d {{db}} -h localhost -p 5432 -U postgres
 
 # start postgres service in docker
-start:
+@start:
   docker compose -f {{POSTGRES}} up -d
 
 # stops postgres service in docker
-stop:
+@stop:
   docker compose -f {{POSTGRES}} down
 
 # removes postgres (inluding volume)
-remove:
+@remove:
   ../yesno.sh && docker compose -f {{POSTGRES}} down -v || echo
 
 # shows pass for local postgres database
 @pass:
-  grep POSTGRES_PASSWORD {{POSTGRES_ENV}} | cut -d '=' -f2
+  echo {{POSTGRES_PASSWORD}}

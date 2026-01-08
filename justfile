@@ -3,10 +3,13 @@
     just --list
 
 # initializes repository after clone
-@init:
+init:
+    #!/usr/bin/env bash
     chmod +x install.sh
     postgres_password=$(openssl rand -base64 32)
-    echo "POSTGRES_PASSWORD=$postgres_postgres_password" > just/postgres/.env
+    if [ ! -f just/postgres/.env ]; then
+      echo "POSTGRES_PASSWORD=\"$postgres_password\"" > just/postgres/.env 
+    fi
 
 alias i := install
 # installs all dotfiles
