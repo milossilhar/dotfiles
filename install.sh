@@ -7,4 +7,5 @@ if ! command -v stow >/dev/null 2>&1; then
 fi
 
 stow -v --dotfiles -d . -t ~ home
+stow -v --dotfiles --ignore=".*\.tmp" -d . -t ~ aws
 stow -v --dotfiles -d . -t ~/.config/just just

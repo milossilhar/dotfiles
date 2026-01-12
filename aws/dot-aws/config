@@ -1,0 +1,8 @@
+[profile hpreview]
+endpoint_url = https://hel1.your-objectstorage.com
+
+[profile hprod]
+endpoint_url = https://hel1.your-objectstorage.com
+
+[profile local]
+endpoint_url = http://localhost:4566

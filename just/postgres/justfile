@@ -5,6 +5,10 @@ POSTGRES_PASSWORD := `grep POSTGRES_PASSWORD ~/.config/just/postgres/.env | sed 
 @default:
   just --list
 
+# inspects compose file
+@inspect:
+  cat {{POSTGRES}}
+
 # creates a new database with given name
 @create dbname:
   PGPASSWORD={{POSTGRES_PASSWORD}} psql -d postgres -h localhost -p 5432 -U postgres -c "CREATE DATABASE {{dbname}}"
