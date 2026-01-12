@@ -1,11 +1,22 @@
 mod postgres
 mod localstack
+mod aws
 
 # lists all recipes
 @default:
-    echo "### MODULE root ###"
+    echo "--------------------"
+    echo "- ROOT"
+    echo "--------------------"
     just -gl
-    echo "### MODULE postgres ###"
-    just -gl postgres
-    echo "### MODULE localstack ###"
+    echo "--------------------"
+    echo "- AWS"
+    echo "--------------------"
+    just -gl aws
+    echo "--------------------"
+    echo "- LOCALSTACK"
+    echo "--------------------"
     just -gl localstack
+    echo "--------------------"
+    echo "- POSTGRES"
+    echo "--------------------"
+    just -gl postgres

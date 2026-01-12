@@ -6,7 +6,7 @@ COMPOSE_FILE := './compose.yaml'
 
 # inspects compose file
 @inspect:
-  cat {{POSTGRES}}
+  cat {{COMPOSE_FILE}}
 
 # start localstack service in docker
 start:
