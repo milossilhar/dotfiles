@@ -5,4 +5,5 @@ endpoint_url = https://hel1.your-objectstorage.com
 endpoint_url = https://hel1.your-objectstorage.com
 
 [profile local]
-endpoint_url = http://localhost:4566
+region = us-east-1
+endpoint_url = http://localhost.localstack.cloud:4566

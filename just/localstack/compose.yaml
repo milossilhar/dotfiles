@@ -1,15 +1,16 @@
 name: "local-aws"
 services:
-  local-s3:
+  local_s3:
     image: localstack/localstack:s3-latest
-    container_name: "local-s3-main"
+    container_name: "local_s3_main"
     env_file: "./.env"
     pull_policy: always
     ports:
       - "4566:4566" # LocalStack Gateway
     environment:
-      - SERVICES=s3
       - DEBUG=0
+      - PERSISTENCE=1
+      - SERVICES=s3
     networks:
       - local_aws_network
     volumes:
