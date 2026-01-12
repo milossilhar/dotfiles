@@ -8,6 +8,9 @@ COMPOSE_FILE := './compose.yaml'
 @inspect:
   cat {{COMPOSE_FILE}}
 
+@logs:
+  docker compose -f {{COMPOSE_FILE}} logs -f
+
 # start localstack service in docker
 start:
   docker compose -f {{COMPOSE_FILE}} up -d
