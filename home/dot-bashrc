@@ -115,6 +115,15 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+aws_profile() {
+  if [ -z "$1" ]; then
+    echo "Usage: aws_profile <profile>"
+    return 0
+  fi
+  export AWS_PROFILE="$1"
+  echo "AWS_PROFILE set to '$AWS_PROFILE'"
+}
+
 # AWS completion
 complete -C $(which aws_completer) aws
 
