@@ -16,8 +16,8 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
-      TZ: "Europe/Bratislava"
-      PGTZ: "Europe/Bratislava"
+      TZ: "UTC"
+      PGTZ: "UTC"
       POSTGRES_USER: "postgres"
       POSTGRES_DB: "postgres"
     healthcheck:
