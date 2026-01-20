@@ -12,13 +12,13 @@ COMPOSE_FILE := './compose.yaml'
   docker compose -f {{COMPOSE_FILE}} logs -f
 
 # start localstack service in docker
-start:
+@start:
   docker compose -f {{COMPOSE_FILE}} up -d
 
 # stops localstack service in docker
-stop:
+@stop:
   docker compose -f {{COMPOSE_FILE}} down
 
 # removes localstack (inluding volume)
-remove:
+@remove:
   ../yesno.sh && docker compose -f {{COMPOSE_FILE}} down -v || echo
