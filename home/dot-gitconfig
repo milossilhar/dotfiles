@@ -1,0 +1,7 @@
+[user]
+	email = migmig095@gmail.com
+	name = Miloš Šilhár
+[core]
+	autocrlf = input
+[init]
+	defaultBranch = master
