@@ -5,3 +5,5 @@
 	autocrlf = input
 [init]
 	defaultbranch = main
+[pull]
+	rebase = true
