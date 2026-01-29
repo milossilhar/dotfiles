@@ -115,6 +115,18 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+c() {
+  if [ -z "$1" ]; then
+    echo "Usage to open cursor: c <folder>"
+    return 0
+  fi
+  if [ -s "$1" ]; then
+    cursor "$1" && exit 0
+  fi
+  echo "Cannot open Cursor. \"$1\" not found"
+  return 1
+}
+
 aws_profile() {
   if [ -z "$1" ]; then
     echo "Usage: aws_profile <profile>"
