@@ -9,3 +9,4 @@ fi
 stow -v --dotfiles -d . -t ~ home
 stow -v --dotfiles --ignore=".*\.tmp" -d . -t ~ aws
 stow -v --dotfiles -d . -t ~/.config/just just
+stow -v --dotfiles -d . -t ~/.config/ghostty ghostty
