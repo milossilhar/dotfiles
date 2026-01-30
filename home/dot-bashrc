@@ -115,17 +115,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-c() {
-  if [ -z "$1" ]; then
-    echo "Usage to open cursor: c <folder>"
-    return 0
-  fi
-  if [ -s "$1" ]; then
-    cursor "$1" && exit 0
-  fi
-  echo "Cannot open Cursor. \"$1\" not found"
-  return 1
-}
 
 aws_profile() {
   if [ -z "$1" ]; then
@@ -138,6 +127,15 @@ aws_profile() {
 
 # AWS completion
 complete -C $(which aws_completer) aws
+
+# Set up fzf key bindings and fuzzy completion
+fzf --version >/dev/null 2>&1 && eval "$(fzf --bash)"
+export FZF_DEFAULT_OPTS="
+  --style=full
+"
+cf() {
+  fzf --walker=dir --walker-root=$HOME --bind="enter:become(cursor {})" && exit 1
+}
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
