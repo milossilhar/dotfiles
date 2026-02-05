@@ -115,7 +115,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-
 aws_profile() {
   if [ -z "$1" ]; then
     echo "Usage: aws_profile <profile>"
