@@ -14,6 +14,25 @@ else
     alias lla='ls -la'
 fi
 
+alias alu='apt list --upgradable'
+
 # just aliases
 alias j='just'
 alias jg='just -g'
+
+# functions that look like aliases
+
+# aws profile switcher
+aws_profile() {
+  if [ -z "$1" ]; then
+    echo "Usage: aws_profile <profile>"
+    return 0
+  fi
+  export AWS_PROFILE="$1"
+  echo "AWS_PROFILE set to '$AWS_PROFILE'"
+}
+
+# cursor fzf to open a directory
+cf() {
+  fzf --walker=dir --walker-root=$HOME --bind="enter:become(cursor {})" && exit 1
+}
