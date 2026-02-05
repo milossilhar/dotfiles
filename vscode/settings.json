@@ -1,0 +1,58 @@
+{
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": false,
+  "editor.fontSize": 15,
+  "editor.formatOnSave": true,
+  "editor.indentSize": "tabSize",
+  "editor.minimap.enabled": true,
+  "editor.minimap.renderCharacters": false,
+  "editor.renderWhitespace": "none",
+  "editor.tabSize": 2,
+  "editor.wordWrapColumn": 160,
+  "explorer.fileNesting.patterns": {
+    "*.db": "${capture}.${extname}-*",
+    "*.db3": "${capture}.${extname}-*",
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+    "*.jsx": "${capture}.js",
+    "*.s3db": "${capture}.${extname}-*",
+    "*.sdb": "${capture}.${extname}-*",
+    "*.sqlite": "${capture}.${extname}-*",
+    "*.sqlite3": "${capture}.${extname}-*",
+    "*.ts": "${capture}.js",
+    "*.tsx": "${capture}.ts",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb, bun.lock",
+    "tsconfig.json": "tsconfig.*.json"
+  },
+  "files.associations": {
+    ".justfile": "just",
+    "dot-bash_aliases": "shellscript",
+    "dot-bashrc": "shellscript",
+    "dot-profile": "shellscript"
+  },
+  "json.schemaDownload.enable": true,
+  "prettier.resolveGlobalModules": true,
+  "redhat.telemetry.enabled": false,
+  "remote.SSH.remotePlatform": {
+    "develop.terapiaslenkou.sk@terapiaslenkou.sk": "linux",
+    "terapiaslenkou.sk": "linux"
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "telemetry.feedback.enabled": false,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.fontFamily": "DroidSansMono Nerd Font",
+  "terminal.integrated.showExitAlert": false,
+  "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}${separator}${profileName}${separator}${appName}",
+  "window.zoomLevel": 0.25,
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.editor.enablePreview": false,
+  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.startupEditor": "none"
+}
