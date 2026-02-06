@@ -5,6 +5,9 @@
   "[go]": {
     "editor.defaultFormatter": "golang.go"
   },
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "JetBrains Mono",
