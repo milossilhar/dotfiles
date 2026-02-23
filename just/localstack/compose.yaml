@@ -2,6 +2,7 @@ name: "local-aws"
 services:
   local_s3:
     image: gresau/localstack-persist:4.12.0
+    pull_policy: weekly
     container_name: "local_s3_main"
     env_file: "./.env"
     ports:
