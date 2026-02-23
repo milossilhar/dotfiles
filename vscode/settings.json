@@ -8,6 +8,9 @@
   "[java]": {
     "editor.defaultFormatter": "redhat.java"
   },
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "JetBrains Mono",
@@ -40,6 +43,7 @@
     "dot-bashrc": "shellscript",
     "dot-profile": "shellscript"
   },
+  "git.openRepositoryInParentFolders": "never",
   "json.schemaDownload.enable": true,
   "prettier.resolveGlobalModules": true,
   "redhat.telemetry.enabled": false,
@@ -48,6 +52,8 @@
     "terapiaslenkou.sk": "linux"
   },
   "security.workspace.trust.untrustedFiles": "open",
+  "supermaven.enableFixWithSupermaven": false,
+  "svg.preview.mode": "svg",
   "telemetry.feedback.enabled": false,
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.fontFamily": "DroidSansMono Nerd Font",
@@ -56,6 +62,9 @@
   "window.zoomLevel": 0.25,
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.editor.enablePreview": false,
+  "workbench.editorAssociations": {
+    "*.svg": "default"
+  },
   "workbench.iconTheme": "catppuccin-mocha",
   "workbench.startupEditor": "none"
 }
