@@ -1,21 +1,41 @@
+# Dotfiles
 
-# Terminal settings
+Personal dotfiles and terminal settings for Linux/macOS/Windows.
 
-Here I save all my terminal settings for linux/mac/windows platforms. Mainly `.bash_profile` and some settings / fonts.
+Configuration is managed via `just` recipes defined in `justfile`.
 
+## Prerequisites
 
+- `just` installed on your system (`apt install just` or your package manager)
 
-## Installation
+## Usage
 
-Install my-project with cloning and copying.
+List available commands:
 
 ```bash
-  git clone https://github.com/milossilhar/terminal.git
-  cd terminal
-  cp .bash_profile ~/
+just
 ```
-    
+
+Install dependencies:
+
+```bash
+just deps
+```
+
+Initialize the environment (exports variables, etc.):
+
+```bash
+just init
+```
+
+Install all dotfiles (or update existing ones):
+
+```bash
+just install
+# or
+just i
+```
+
 ## License
 
-[Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/)
-
+[MIT License](https://choosealicense.com/licenses/mit/)
