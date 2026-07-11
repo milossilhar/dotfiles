@@ -129,3 +129,6 @@ export FZF_DEFAULT_OPTS="
 
 # Homebrew
 [ -s "/home/linuxbrew/.linuxbrew/bin/brew" ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+
+# RUST Cargo
+. "$HOME/.cargo/env"
