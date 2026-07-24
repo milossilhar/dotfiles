@@ -11,3 +11,4 @@ stow -v --dotfiles --ignore=".*\.tmp" -d . -t ~ aws
 stow -v --dotfiles -d . -t ~/.config/just just
 stow -v --dotfiles -d . -t ~/.config/ghostty ghostty
 stow -v --dotfiles -d . -t ~/.config/Cursor/User vscode
+stow -v --dotfiles -d . -t ~/.config/zed zed
