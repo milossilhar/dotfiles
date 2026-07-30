@@ -20,6 +20,8 @@ alias alu='apt list --upgradable'
 alias j='just'
 alias jg='just -g'
 
+alias lzd='lazydocker'
+
 # functions that look like aliases
 
 # aws profile switcher
@@ -35,4 +37,8 @@ aws_profile() {
 # cursor fzf to open a directory
 cf() {
   fzf --walker=dir --walker-root=$HOME --bind="enter:become(cursor {})" && exit 1
+}
+
+curlw() {
+  curl -w "\nstatus=%{http_code} %{redirect_url} size=%{size_download} time=%{time_total} content-type=\"%{content_type}\"\n" "$@";
 }
