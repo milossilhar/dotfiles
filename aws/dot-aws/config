@@ -1,3 +1,0 @@
-[profile local]
-region = us-east-1
-endpoint_url = http://localhost.localstack.cloud:4566
