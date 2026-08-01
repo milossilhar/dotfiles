@@ -13,6 +13,13 @@ POSTGRES_PASSWORD := `grep POSTGRES_PASSWORD ~/.config/just/postgres/.env | sed 
 @create dbname:
   PGPASSWORD={{POSTGRES_PASSWORD}} psql -d postgres -h localhost -p 5432 -U postgres -c "CREATE DATABASE {{dbname}}"
 
+# drops existing database with given name
+@drop dbname:
+  ../yesno.sh && PGPASSWORD={{POSTGRES_PASSWORD}} psql -d postgres -h localhost -p 5432 -U postgres -c "DROP DATABASE {{dbname}}"
+
+@recreate dbname:
+  drop {{dbname}} && create {{dbname}}
+
 # lists all available databases
 @list:
   PGPASSWORD={{POSTGRES_PASSWORD}} psql -l -h localhost -p 5432 -U postgres
